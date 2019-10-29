@@ -1,0 +1,15 @@
+#main {
+	background-color: #AAF;
+	width: 300px;
+	height: 600px;
+	
+	padding: 5px;
+}
+
+#in {
+	color: grey;
+}
+
+li {
+	color: #55A;
+}
