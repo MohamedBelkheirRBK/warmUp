@@ -1,0 +1,22 @@
+.main {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.lists {
+	display: flex;
+}
+
+#left, #right {
+		width: 300px;
+		min-height: 40px;
+		font-family: monospace;
+}
+
+#right {
+	background-color: #AAF
+}
+#left {
+	background-color: #FFA
+}
