@@ -16,14 +16,47 @@
             C          100
             D          500
             M          1,000 
-    
+    */
+function toNumerical(roman){
+	var sum = 0;
+	var romanNum = {
+		I: 1,
+		V: 5,
+		X: 10,
+		L: 50,
+		C: 100,
+		D: 500,
+		M: 1000,
+	}
+	roman = roman.split('');
+	for(var char of roman){
+		sum+=romanNum[char];
+	}
+	return sum;
+
+}
+
+
+
+
+/*
     2. Complete the method/function so that it converts dash/underscore delimited words into camel casing. The first word within the output should be capitalized only if the original word was capitalized (known as Upper Camel Case, also often referred to as Pascal case).
         Examples:
 
         toCamelCase("the-stealth-warrior") // returns "theStealthWarrior"
 
         toCamelCase("The_Stealth_Warrior") // returns "TheStealthWarrior"
-    
+*/
+function toCamelCase(string){
+	string = string.split(/[-_]/g);
+	for (var word in string){
+		string[word] = string[word][0].toUpperCase() + string[word].slice(1);
+	}
+	return string.join(' ');
+}
+
+
+/*
     3. In this kata you will create a function that takes a list of non-negative integers and strings and returns a new list with the strings filtered out.
         Example
 
@@ -31,3 +64,10 @@
             filter_list([1,'a','b',0,15]) == [1,0,15]
             filter_list([1,2,'aasf','1','123',123]) == [1,2,123]
 */
+
+function filterList(array){
+	return array.filter(function(n){
+		return typeof n === "number";
+	})
+}
+
