@@ -29,8 +29,11 @@ function toNumerical(roman){
 		M: 1000,
 	}
 	roman = roman.split('');
-	for(var char of roman){
-		sum+=romanNum[char];
+	for(var i in roman){
+		if(roman[i] === 'I'&&roman[i+1]!== 'I')
+			sum--;
+		else
+		sum+=romanNum[roman[i]];
 	}
 	return sum;
 
@@ -48,11 +51,15 @@ function toNumerical(roman){
         toCamelCase("The_Stealth_Warrior") // returns "TheStealthWarrior"
 */
 function toCamelCase(string){
+	if(typeof string !== "string" || string ===  "")
+		return "";
 	string = string.split(/[-_]/g);
+	var firstWord = string.splice(0, 1);
 	for (var word in string){
 		string[word] = string[word][0].toUpperCase() + string[word].slice(1);
 	}
-	return string.join(' ');
+	firstWord.push(...string);
+	return firstWord.join('');
 }
 
 
