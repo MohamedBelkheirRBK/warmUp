@@ -18,6 +18,17 @@ Output: 0
 Explanation: In this case, no transaction is done, i.e. max profit = 0.
 */
 
+
+//iterate over the prices, twice, find the most profitable deal by comparing each element to everything else after its position in the array
+
+
 var maxProfit = function(prices) {
-  // YOUR CODE HERE
+	var maxProfit = 0; //default profit is 0
+  for(var i in prices){ //outer loop, holds the stock we plan to buy
+  	for(var price2 of prices.slice(i)) //inner loop, loops through all the items after the stock we plan to buy
+  		if(price2-prices[i]>maxProfit) //if the current deal is better than our current best deal, switch the deals
+  			maxProfit = price2-prices[i];
+  }
+
+  return maxProfit //return our profits
 };
