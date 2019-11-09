@@ -1,4 +1,4 @@
-// You are given an input string.
+ // You are given an input string.
 
 // For each symbol in the string if it's the first character occurence, replace it with a '1', else replace it with the amount of times you've already seen it...
 
@@ -10,3 +10,14 @@
 
 // input   =  "aaaaaaaaaaaa"
 // result  =  "123456789101112"
+
+function occurances(string){
+	var letters = {};
+	var output = '';
+	for(var ch of string.split('')){
+		if(letters[ch]===undefined)
+			letters[ch] = 1;
+		output+= letters[ch]++;
+	}
+	return output;
+}
